@@ -80,7 +80,6 @@ else:
         for r in res.get("reasons", []):
             st.write(f"- {r}")
 
-# Custom footer (fixed) with cursive font and link
 st.markdown(
     """
     <style>
