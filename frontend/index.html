@@ -1,0 +1,364 @@
+<!-- codes by vision -->
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PhishX - Advanced Phishing Detection</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#ffffff",
+                        "surface-light": "#f9fafb",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-[#0d1117] text-[#111418] dark:text-gray-100 transition-colors duration-300">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <header
+            class="flex items-center justify-between border-b border-[#f0f2f4] dark:border-gray-800 bg-white dark:bg-[#0d1117] px-10 py-4 sticky top-0 z-50">
+            <div class="flex items-center gap-2">
+                <div class="size-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+                    <span class="material-symbols-outlined text-2xl font-bold">shield_person</span>
+                </div>
+                <h2 class="text-xl font-bold tracking-tight font-display">PhishX</h2>
+            </div>
+            <nav class="flex items-center gap-8">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="#tools">Analyzer</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="#education">Learn</a>
+                <button id="theme-toggle"
+                    class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <span id="theme-toggle-dark-icon" class="material-symbols-outlined hidden">dark_mode</span>
+                    <span id="theme-toggle-light-icon" class="material-symbols-outlined">light_mode</span>
+                </button>
+                <button
+                    class="bg-primary text-white text-sm font-bold py-2 px-5 rounded-lg hover:bg-primary/90 transition-all">Get
+                    Started</button>
+            </nav>
+        </header>
+
+        <main class="flex-1">
+            <section class="relative py-24 px-4 text-center overflow-hidden">
+                <div class="absolute inset-0 z-0 opacity-[0.12] pointer-events-none">
+                    <img src="assets/hero-bg.png" alt="" class="w-full h-full object-cover">
+                </div>
+
+                <div class="relative z-10 max-w-4xl mx-auto fade-in-up">
+                    <h1 class="text-6xl font-extrabold tracking-tight font-display mb-6 dark:text-white">PhishX</h1>
+                    <p class="text-xl text-[#617589] dark:text-gray-400 font-medium leading-relaxed">
+                        Advanced Phishing Detection for Emails, Links, and QR Codes.
+                    </p>
+                    <div class="mt-10 flex justify-center gap-4">
+                        <a class="bg-primary text-white font-bold py-3 px-8 rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform"
+                            href="#tools">Start Scanning</a>
+                        <a class="bg-white dark:bg-[#161b22] border border-[#dbe0e6] dark:border-gray-700 text-[#111418] dark:text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-50 dark:hover:bg-[#1c2128] transition-colors"
+                            href="#education">How it works</a>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="py-16 bg-surface-light dark:bg-[#0d1117] border-y border-[#f0f2f4] dark:border-gray-800 reveal"
+                id="tools">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 fade-in-up-stagger">
+                        <a class="detection-card bg-white dark:bg-[#161b22] p-8 rounded-xl border border-[#dbe0e6] dark:border-gray-700 shadow-sm transition-all group hover:border-primary dark:hover:border-primary stagger-item"
+                            href="#email-input" onclick="showSection('email'); return false;">
+                            <span
+                                class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">mail</span>
+                            <h3 class="text-lg font-bold mb-2 dark:text-white">Email Analysis</h3>
+                            <p class="text-[#617589] dark:text-gray-400 text-sm leading-relaxed">Scan headers and body
+                                text for deceptive
+                                language and spoofing patterns.</p>
+                        </a>
+                        <a class="detection-card bg-white dark:bg-[#161b22] p-8 rounded-xl border border-[#dbe0e6] dark:border-gray-700 shadow-sm transition-all group hover:border-primary dark:hover:border-primary stagger-item"
+                            href="#link-input" onclick="showSection('url'); return false;">
+                            <span
+                                class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">link</span>
+                            <h3 class="text-lg font-bold mb-2 dark:text-white">Link Checker</h3>
+                            <p class="text-[#617589] dark:text-gray-400 text-sm leading-relaxed">Verify URLs against
+                                real-time threat
+                                intelligence and look-alike domain databases.</p>
+                        </a>
+                        <a class="detection-card bg-white dark:bg-[#161b22] p-8 rounded-xl border border-[#dbe0e6] dark:border-gray-700 shadow-sm transition-all group hover:border-primary dark:hover:border-primary stagger-item"
+                            href="#qr-input" onclick="showSection('qr'); return false;">
+                            <span
+                                class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform">qr_code_scanner</span>
+                            <h3 class="text-lg font-bold mb-2 dark:text-white">QR Code Scan</h3>
+                            <p class="text-[#617589] dark:text-gray-400 text-sm leading-relaxed">Safely extract and
+                                analyze hidden URLs
+                                embedded within QR code images.</p>
+                        </a>
+                    </div>
+
+                    <div
+                        class="bg-white dark:bg-[#161b22] rounded-xl border border-[#dbe0e6] dark:border-gray-700 shadow-sm p-8 min-h-[400px]">
+                        <div class="section-content" id="email-section">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-2 dark:text-white">
+                                <span class="material-symbols-outlined text-primary">mail</span> Analyze Email Content
+                            </h4>
+                            <textarea id="email-text"
+                                class="w-full h-48 rounded-lg border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-[#0d1117] text-[#111418] dark:text-white focus:ring-primary focus:border-primary p-4 font-mono text-sm mb-6"
+                                placeholder="Paste the full email header and body here..."></textarea>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-[#617589] dark:text-gray-400">Supported formats: .eml, plain
+                                    text</span>
+                                <button onclick="analyzeEmail(event)"
+                                    class="bg-primary text-white font-bold py-2.5 px-8 rounded-lg hover:bg-primary/90 transition-all">Analyze
+                                    Email</button>
+                            </div>
+                            <div id="email-result" class="result-box hidden"></div>
+                        </div>
+
+                        <div class="section-content hidden" id="url-section">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-2 dark:text-white">
+                                <span class="material-symbols-outlined text-primary">link</span> Check Suspicious Link
+                            </h4>
+                            <input id="url-input"
+                                class="w-full h-14 rounded-lg border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-[#0d1117] text-[#111418] dark:text-white focus:ring-primary focus:border-primary px-4 mb-6"
+                                placeholder="https://suspicious-site.com/login" type="url" />
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-[#617589] dark:text-gray-400">We check for redirect loops and
+                                    zero-day phishing
+                                    sites.</span>
+                                <button onclick="analyzeURL(event)"
+                                    class="bg-primary text-white font-bold py-2.5 px-8 rounded-lg hover:bg-primary/90 transition-all">Check
+                                    URL</button>
+                            </div>
+                            <div id="url-result" class="result-box hidden"></div>
+                        </div>
+
+                        <div class="section-content hidden" id="qr-section">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-2 dark:text-white">
+                                <span class="material-symbols-outlined text-primary">qr_code_scanner</span> Scan QR
+                                Image
+                            </h4>
+                            <div id="qr-drop-zone"
+                                class="border-2 border-dashed border-[#dbe0e6] dark:border-gray-700 rounded-xl p-16 flex flex-col items-center justify-center text-center hover:border-primary transition-colors cursor-pointer bg-surface-light dark:bg-[#0d1117] mb-6">
+                                <span class="material-symbols-outlined text-5xl text-[#617589] mb-4">cloud_upload</span>
+                                <p class="text-lg font-semibold dark:text-white">Drop QR code image here or click to
+                                    upload</p>
+                                <p class="text-[#617589] text-sm mt-2">Upload PNG, JPG or SVG files</p>
+                            </div>
+                            <input type="file" id="qr-file-input" accept="image/*" class="hidden" />
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-[#617589] dark:text-gray-400" id="qr-filename"></span>
+                                <button onclick="analyzeQR(event)"
+                                    class="bg-primary text-white font-bold py-2.5 px-8 rounded-lg hover:bg-primary/90 transition-all">Scan
+                                    Image</button>
+                            </div>
+                            <div id="qr-result" class="result-box hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-12 bg-white dark:bg-[#0d1117] reveal">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div
+                        class="flex flex-col md:flex-row justify-around items-center border border-[#f0f2f4] dark:border-gray-800 rounded-2xl py-10 px-6 shadow-sm bg-white dark:bg-[#161b22]">
+                        <div class="text-center px-8 mb-8 md:mb-0">
+                            <p class="text-4xl font-bold text-primary mb-1" id="scans-counter">0</p>
+                            <p class="text-sm font-medium text-[#617589] dark:text-gray-400 uppercase tracking-wider">
+                                Scans in the last 24
+                                hours</p>
+                        </div>
+                        <div class="w-px h-12 bg-[#f0f2f4] dark:bg-gray-800 hidden md:block"></div>
+                        <div class="text-center px-8 mb-8 md:mb-0">
+                            <p class="text-4xl font-bold text-[#111418] dark:text-white mb-1" id="users-counter">0</p>
+                            <p class="text-sm font-medium text-[#617589] dark:text-gray-400 uppercase tracking-wider">
+                                Active users</p>
+                        </div>
+                        <div class="w-px h-12 bg-[#f0f2f4] dark:bg-gray-800 hidden md:block"></div>
+                        <div class="text-center px-8">
+                            <p class="text-4xl font-bold text-[#111418] dark:text-white mb-1" id="orgs-counter">0</p>
+                            <p class="text-sm font-medium text-[#617589] dark:text-gray-400 uppercase tracking-wider">
+                                Active organizations
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 bg-surface-light dark:bg-[#0d1117] reveal" id="education">
+                <div class="max-w-5xl mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold mb-4 dark:text-white">What Is Phishing & How to Protect Yourself
+                        </h2>
+                        <p class="text-[#617589] dark:text-gray-400 max-w-2xl mx-auto">Knowledge is the first line of
+                            defense. Phishing
+                            remains the most common entry point for cyberattacks globally.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-primary flex items-center gap-2">
+                                <span class="material-symbols-outlined">warning</span> Common Phishing Forms
+                            </h3>
+                            <ul class="space-y-4">
+                                <li class="flex gap-4">
+                                    <div class="mt-1"><span
+                                            class="material-symbols-outlined text-green-500">check_circle</span></div>
+                                    <div>
+                                        <p class="font-bold dark:text-white">Deceptive Phishing</p>
+                                        <p class="text-sm text-[#617589] dark:text-gray-400">Emails impersonating
+                                            legitimate brands to
+                                            steal credentials or financial info.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="mt-1"><span
+                                            class="material-symbols-outlined text-green-500">check_circle</span></div>
+                                    <div>
+                                        <p class="font-bold dark:text-white">Spear Phishing</p>
+                                        <p class="text-sm text-[#617589] dark:text-gray-400">Highly personalized attacks
+                                            targeting specific
+                                            individuals within an organization.</p>
+                                    </div>
+                                </li>
+                                <li class="flex gap-4">
+                                    <div class="mt-1"><span
+                                            class="material-symbols-outlined text-green-500">check_circle</span></div>
+                                    <div>
+                                        <p class="font-bold dark:text-white">Quishing (QR Phishing)</p>
+                                        <p class="text-sm text-[#617589] dark:text-gray-400">Malicious links hidden in
+                                            QR codes to bypass
+                                            traditional email filters.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-[#161b22] p-8 rounded-xl border border-[#dbe0e6] dark:border-gray-700 shadow-sm">
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-2 dark:text-white">
+                                <span class="material-symbols-outlined">verified_user</span> Best Practices
+                            </h3>
+                            <div class="space-y-4">
+                                <div
+                                    class="p-4 bg-surface-light dark:bg-[#0d1117] rounded-lg border-l-4 border-primary">
+                                    <p class="text-sm font-semibold mb-1 dark:text-white">Check the Sender's Address</p>
+                                    <p class="text-xs text-[#617589] dark:text-gray-400">Always hover over the name to
+                                        see the actual email
+                                        address. Look for subtle misspellings.</p>
+                                </div>
+                                <div
+                                    class="p-4 bg-surface-light dark:bg-[#0d1117] rounded-lg border-l-4 border-primary">
+                                    <p class="text-sm font-semibold mb-1 dark:text-white">Inspect Before You Click</p>
+                                    <p class="text-xs text-[#617589] dark:text-gray-400">Hover over links to see their
+                                        true destination. If
+                                        it doesn't match the text, don't click.</p>
+                                </div>
+                                <div
+                                    class="p-4 bg-surface-light dark:bg-[#0d1117] rounded-lg border-l-4 border-primary">
+                                    <p class="text-sm font-semibold mb-1 dark:text-white">Enable Multi-Factor (MFA)</p>
+                                    <p class="text-xs text-[#617589] dark:text-gray-400">MFA provides a critical safety
+                                        net even if your
+                                        password is compromised via phishing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="bg-white dark:bg-[#0d1117] border-t border-[#f0f2f4] dark:border-gray-800 pt-16 pb-12">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                    <div class="col-span-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="size-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+                                <span class="material-symbols-outlined text-xl font-bold">shield_person</span>
+                            </div>
+                            <h2 class="text-xl font-bold tracking-tight font-display dark:text-white">PhishX</h2>
+                        </div>
+                        <p class="text-[10px] text-[#a1b0be] mb-4">; Author: <a href="https://visionkc.com.np"
+                                class="text-primary hover:underline">Vision KC</a></p>
+                        <p class="text-[#617589] dark:text-gray-400 text-sm leading-relaxed max-w-xs">
+                            Advanced phishing detection empowering individuals and organizations with real-time threat
+                            intelligence.
+                        </p>
+                    </div>
+
+                    <div class="col-span-1">
+                        <h4 class="text-sm font-bold text-[#111418] dark:text-white uppercase tracking-wider mb-6">
+                            Resources</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#tools"
+                                    class="text-sm text-[#617589] dark:text-gray-400 hover:text-primary transition-colors">Analyzer
+                                    Tool</a></li>
+                            <li><a href="#education"
+                                    class="text-sm text-[#617589] dark:text-gray-400 hover:text-primary transition-colors">How
+                                    it Works</a>
+                            </li>
+                            <li><a href="#education"
+                                    class="text-sm text-[#617589] dark:text-gray-400 hover:text-primary transition-colors">Phishing
+                                    Types</a></li>
+                            <li><a href="#education"
+                                    class="text-sm text-[#617589] dark:text-gray-400 hover:text-primary transition-colors">Security
+                                    Basics</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-1">
+                        <h4 class="text-sm font-bold text-[#111418] dark:text-white uppercase tracking-wider mb-6">
+                            Contact</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-sm text-[#617589] dark:text-gray-400">
+                                <span class="material-symbols-outlined text-lg text-primary">mail</span>
+                                <span>info.visionn7@gmail.com</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-[#617589] dark:text-gray-400">
+                                <span class="material-symbols-outlined text-lg text-primary">location_on</span>
+                                <span>Kathmandu, Nepal</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-[#617589] dark:text-gray-400">
+                                <span class="material-symbols-outlined text-lg text-primary">help</span>
+                                <span>24/7 Security Assistance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="border-t border-[#f0f2f4] dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-[#a1b0be] dark:text-gray-500">
+                    <p>© 2026 PhishX Security Labs. All rights reserved.</p>
+                    <div class="flex gap-6 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm">language</span>
+                            <span>English (US)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
