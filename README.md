@@ -341,21 +341,6 @@ Phishing is a cybersecurity attack where attackers impersonate legitimate entiti
 
 ---
 
-## 🔮 Future Enhancements
-
-- [ ] Real-time threat intelligence integration
-- [ ] Browser extension for automatic URL checking
-- [ ] Email client plugin
-- [ ] Mobile app for QR scanning
-- [ ] Advanced NLP models (BERT, GPT)
-- [ ] Multi-language support
-- [ ] Threat database with known phishing campaigns
-- [ ] User reporting system
-- [ ] API rate limiting and authentication
-- [ ] Docker containerization
-
----
-
 ## 🤝 Contributing
 
 This is an educational project. Contributions for:
@@ -378,32 +363,9 @@ This project is for **educational and research purposes only**.
 ---
 
 ## 👨‍💻 Author
-
-Built as a cybersecurity portfolio project demonstrating:
-- Full-stack web development
-- Machine Learning implementation
-- Security awareness
-- Ethical coding practices
-
----
-
-## 🙏 Acknowledgments
-
-- **scikit-learn** - Machine Learning framework
-- **Flask** - Web framework
-- **OpenCV & pyzbar** - QR code processing
-- **TailwindCSS** - UI styling
-- **Cybersecurity Community** - Threat intelligence and research
-
----
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Review the documentation above
-- Check API endpoints are running
-- Ensure models are trained
-- Verify system dependencies are installed
+**Vision KC**
+[Github](https://github.com/vision-dev1)
+[Website](https://visionkc.com.np)
 
 ---
 
