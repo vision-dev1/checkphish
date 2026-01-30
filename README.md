@@ -358,7 +358,7 @@ are welcome!
 
 This project is for **educational and research purposes only**. 
 
-**MIT License** - See LICENSE file for details.
+**MIT License** - See [LICENSE](LICENSE) file for details.
 
 ---
 
